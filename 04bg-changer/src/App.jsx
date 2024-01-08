@@ -1,34 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [color,setcolor]= useState("rgb(15,23, 42)")
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+   <div className="h-screen w-full  flex flex-wrap items-end justify-center" style={{backgroundColor:color}}>
+    <div className="bg-transparent p-2 rounded-2xl">
+       <button className="bg-red-500 text-white p-2 px-5 rounded-xl mx-3" onClick={()=>setcolor("rgb(239,86,68)")} >Red</button>
+       <button className="bg-green-500 text-white p-2 px-5 rounded-xl mx-3" onClick={()=>setcolor("rgb(34,197,94)")} >Green</button>
+       <button className="bg-purple-500 text-white p-2 px-5 rounded-xl mx-3" onClick={()=>setcolor("rgb(168,85,247)")} >Purple</button>
+       <button className="bg-orange-500 text-white p-2 px-5 rounded-xl mx-3" onClick={()=>setcolor("rgb(249,115,22)")} >Orange</button>
+       <button className="bg-pink-500 text-white p-2 px-5 rounded-xl mx-3" onClick={()=>setcolor("rgb(236,72,153)")} >Pink</button>
+       </div>
+   </div>
   )
 }
 
