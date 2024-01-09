@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useRouteLoaderData } from "react-router-dom";
 
 
 function GitHub(){
-    const data = useLoaderData()
-    // const[data,setdata]=useState([]);
-    // useEffect(()=>{
-    //     fetch('https://api.github.com/users/yash095desh')
-    //     .then((res)=>res.json())
-    //     .then((res)=>setdata(res))
-    // },[])
+    const data = useRouteLoaderData('root')
+    console.log(data)
+   
 return(
     <>
     <div className="h-[300px] bg-slate-200 flex  justify-center items-center">
@@ -21,7 +17,11 @@ return(
 )
 }
 export default GitHub;
-export const gitInfo = async ()=>{
-    const res = await fetch(`https://api.github.com/users/yash095desh`)
-    return res.json()
+export const getInfo = async function({params}){
+    const username = params.username
+    const res = await fetch(`https://api.github.com/users/${username}`)
+    const data = await(res.json())
+    console.log(data)
+
+     return data
 }

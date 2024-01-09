@@ -4,7 +4,7 @@ import './index.css'
 import Layout from './Layout.jsx'
 import About from './Components/About/About.jsx'
 import Contact from './Components/Contact/Contact.jsx'
-import GitHub  from './Components/Github/Github.jsx'
+import GitHub, { getInfo }  from './Components/Github/Github.jsx'
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -12,15 +12,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './Components/Home/Home.jsx'
-import { gitInfo } from './Components/Github/Github.jsx'
+
 
 const router = createBrowserRouter(
-  createRoutesFromElements(
+  createRoutesFromElements( 
     <Route path='/' element={<Layout/>}>
       <Route index element={<Home/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/contact' element={<Contact/>}/>
-      <Route path='/github' loader={gitInfo} element={<GitHub/>}/>
+      <Route path='/github'  element={<GitHub/>}>
+        <Route path=':username' loader={getInfo} id='root' element={<GitHub/>}/>
+      </Route>
     </Route>
       
   )
