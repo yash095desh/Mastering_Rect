@@ -10,7 +10,8 @@ return(
     <>
     <div className="h-[300px] bg-slate-200 flex  justify-center items-center">
         <img src={data.avatar_url} className="h-[250px] rounded-xl m-5" alt="gitthub profile" />
-        <h3 className=" text-xl">Followers:{data.followers}</h3>
+        <h3 className=" text-xl">Followers:{data.followers}</h3><br/>
+        <h2 className="text-lg m-2 font-bold">repo :{data.public_repos} </h2>
 
     </div>
     </>
